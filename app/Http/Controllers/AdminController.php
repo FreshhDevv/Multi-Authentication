@@ -9,4 +9,8 @@ class AdminController extends Controller
     public function Index() {
         return view();
     }
+
+    public function Dashboard() {
+        return view('admin.index');
+    }
 }
