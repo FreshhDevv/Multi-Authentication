@@ -51,9 +51,9 @@ Route::prefix('seller')->group(function () {
 
     Route::get('/logout', [SellerController::class, 'SellerLogout'])->name('seller.logout')->middleware('seller'); 
 
-    Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
+    Route::get('/register', [SellerController::class, 'SellerRegister'])->name('seller.register');
 
-    Route::post('/register/create', [AdminController::class, 'AdminRegisterCreate'])->name('admin.register.create');
+    Route::post('/register/create', [SellerController::class, 'SellerRegisterCreate'])->name('seller.register.create');
 
 
 });
