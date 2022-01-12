@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SellerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,33 @@ Route::prefix('admin')->group(function () {
 });
 
 
-/* ------------ Admin Route ---------- */
+/* ------------ End Admin Route ---------- */
+
+
+
+/* ------------ Seller Route ---------- */
+
+Route::prefix('seller')->group(function () {
+
+    Route::get('/login', [SellerController::class, 'Index'])->name('seller_login_form');
+
+    Route::get('/dashboard', [SellerController::class, 'SellerDashboard'])->name('seller.dashboard'); 
+
+    Route::post('/login/owner', [SellerController::class, 'SellerLogin'])->name('seller.login');
+
+    Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin'); 
+
+    Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
+
+    Route::post('/register/create', [AdminController::class, 'AdminRegisterCreate'])->name('admin.register.create');
+
+
+});
+
+
+/* ------------ End Seller Route ---------- */
+
+
 
 Route::get('/', function () {
     return view('welcome');
