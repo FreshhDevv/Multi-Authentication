@@ -43,13 +43,13 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('seller')->group(function () {
 
-    Route::get('/login', [SellerController::class, 'Index'])->name('seller_login_form');
+    Route::get('/login', [SellerController::class, 'SellerIndex'])->name('seller_login_form');
 
-    Route::get('/dashboard', [SellerController::class, 'SellerDashboard'])->name('seller.dashboard'); 
+    Route::get('/dashboard', [SellerController::class, 'SellerDashboard'])->name('seller.dashboard')->middleware('seller'); 
 
     Route::post('/login/owner', [SellerController::class, 'SellerLogin'])->name('seller.login');
 
-    Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin'); 
+    Route::get('/logout', [SellerController::class, 'SellerLogout'])->name('seller.logout')->middleware('seller'); 
 
     Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
 

@@ -5,15 +5,15 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Seller;
 
-class DatabaseSeeder extends Seeder
+class SellerSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        Seller::factory(2)->create();
+        Seller::factory(1)->create();
     }
 }

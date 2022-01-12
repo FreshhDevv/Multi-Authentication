@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SellerController extends Controller
 {
-    public function Index() {
+    public function SellerIndex() {
         return view('seller.seller_login');
     } //end method
 
@@ -26,5 +26,10 @@ class SellerController extends Controller
         } else {
             return back()->with('error', 'Invalid Credentials');
         }
+    } //end method
+
+    public function SellerLogout() {
+        Auth::guard('seller')->logout();
+        return redirect()->route('seller_login_form')->with('error', 'Seller Logout Successfully');
     } //end method
 }

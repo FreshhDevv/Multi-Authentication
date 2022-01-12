@@ -233,7 +233,7 @@
                                 <li><a href=" "><span><i class="fas fa-cogs"></i></span>  Password Change</a></li>
                                 <li>
 
-                                    <a href="{{ route('admin.logout') }}"><span><i class="fas fa-unlock-alt"></i></span> Logout</a></li>
+                                    <a href="{{ route('seller.logout') }}"><span><i class="fas fa-unlock-alt"></i></span> Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -380,8 +380,8 @@
                     </div>
                     @endif
 
-                    <h3>Login Seller Name:</h3>
-                    <h3>Login Seller Email: </h3>
+                    <h3>Login Seller Name: {{ Auth::guard('seller')->user()->name }}</h3>
+                    <h3>Login Seller Email: {{ Auth::guard('seller')->user()->email }}</h3>
 
 
 
